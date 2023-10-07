@@ -1,4 +1,4 @@
-const { app, BrowserWindow, Menu, ipcMain } = require('electron');
+const { app, BrowserWindow, Menu, ipcMain, dialog,shell } = require('electron');
 const path = require('path');
 isDev = false
 
@@ -15,7 +15,8 @@ const createWindow = () => {
     minWidth:700,
     minHeight:600,
     webPreferences: {
-      nodeIntegration:true,
+      nodeIntegration: true,
+      contextIsolation: false, // Disable context isolation
       devTools:isDev,
       
     },
@@ -42,6 +43,11 @@ const createWindow = () => {
     };
     dialog.showMessageBox(mainWindow, options);
   });
+
+  ipcMain.on('openURL',(event,url) => {
+    shell.openExternal(url);
+  })
+
 };
 
 
@@ -62,6 +68,7 @@ app.on('activate', () => {
     createWindow();
   }
 });
+
 
 //No menu
 const menu = []

@@ -1,11 +1,15 @@
+
 document.addEventListener("DOMContentLoaded",()=>{
     
     //Declaration
+    const { ipcRenderer } = require("electron");
     const playerDisplayer = document.getElementById('currentPlayer');
     const resetBtn = document.querySelector('a#btn');
-    var cells = document.querySelectorAll('.int');
     const holders = document.querySelectorAll('.ext')
     const gameContainer = document.getElementById('game')
+    const githubBtn = document.getElementById('github')
+    const discordBtn = document.getElementById('discord')
+    var cells = document.querySelectorAll('.int');
     var currentPlayer = 'X'
 
 
@@ -109,5 +113,12 @@ document.addEventListener("DOMContentLoaded",()=>{
     resetBtn.addEventListener('click', resetGame);
 
 
+    githubBtn.addEventListener('click', () => {
+        ipcRenderer.send('openURL', 'https://github.com/PLMohamed');
+    });
+
+    discordBtn.addEventListener('click',()=>{
+        ipcRenderer.send('show-success-box',{title:'Discord id',message:'Discord : plmohamed \nPLMohamed#5354'})
+    })
     activeAll();
 })
