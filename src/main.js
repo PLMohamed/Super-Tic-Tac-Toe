@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded",()=>{
     
     //Declaration
     const playerDisplayer = document.getElementById('currentPlayer');
-    const resetBtn = document.querySelector('a');
+    const resetBtn = document.querySelector('a#btn');
     var cells = document.querySelectorAll('.int');
     const holders = document.querySelectorAll('.ext')
     const gameContainer = document.getElementById('game')
@@ -34,13 +34,13 @@ document.addEventListener("DOMContentLoaded",()=>{
             div.innerHTML = currentPlayer;
             removeAll();
 
-            var result = checkWinner(div.parentElement)
+            var result = checkWinner(div.parentElement,false)
             if(result == true){
                 div.parentElement.classList.add('disable');
                 div.parentElement.innerHTML = currentPlayer
             }
 
-            result = checkWinner(gameContainer)
+            result = checkWinner(gameContainer,true)
             if (result == true) 
                 playerDisplayer.textContent = `Player ${currentPlayer} wins!`;
             else if(document.querySelectorAll('.disable').length == 9)
@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded",()=>{
 
     }
 
-    function checkWinner(holder) {
+    function checkWinner(holder,bool) {
         const winPatterns = [
             [0, 1, 2], [3, 4, 5], [6, 7, 8], // Rows
             [0, 3, 6], [1, 4, 7], [2, 5, 8], // Columns
@@ -67,9 +67,12 @@ document.addEventListener("DOMContentLoaded",()=>{
           ];
         const holderCells =  holder.querySelectorAll(`#${holder.getAttribute('id')} > div`)
 
-        
         for (const pattern of winPatterns) {
           const [a, b, c] = pattern;
+
+          if (bool && (!holderCells[a].classList.contains('disable') || !holderCells[b].classList.contains('disable') || !holderCells[c].classList.contains('disable')) ) 
+            continue;
+
           if (holderCells[a].textContent.trim() && holderCells[a].textContent.trim() === holderCells[b].textContent.trim() && holderCells[a].textContent.trim() === holderCells[c].textContent.trim()) {
             return true
           }

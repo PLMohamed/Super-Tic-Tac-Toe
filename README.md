@@ -25,6 +25,16 @@ Each smaller board contains 9 cells arranged in a 3x3 grid. Two players take tur
 
 To reset the game and start a new match, simply click the "Reset Game" button above the game grid. This will clear all the cells and allow you to begin a fresh game with Player 1 starting as 'X'.
 
+## Contribution
+
+Contributions are welcome! If you want to contribute to this project, please follow these steps:
+
+1. Fork the repository.
+2. Create a new branch: `git checkout -b feature/new-feature`.
+3. Make changes and commit: `git commit -m 'Add new feature'`.
+4. Push to the branch: `git push origin feature/new-feature`.
+5. Submit a pull request.
+
 ## License
 
 This project is licensed under the [MIT License](LICENSE).

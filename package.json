@@ -1,8 +1,8 @@
 {
   "name": "supertictactoe",
-  "productName": "supertictactoe",
+  "productName": "Super Tic Tac Toe",
   "version": "1.0.0",
-  "description": "My Electron application description",
+  "description": "an extended version of the classic Tic-Tac-Toe game where you play on a larger grid consisting of 9 smaller Tic-Tac-Toe boards.",
   "main": "src/index.js",
   "scripts": {
     "start": "electron-forge start",
@@ -12,7 +12,7 @@
     "lint": "echo \"No linting configured\""
   },
   "keywords": [],
-  "author": "belmo",
+  "author": "Boumedine Mohamed Touati 'PLMohamed'",
   "license": "MIT",
   "dependencies": {
     "electron-squirrel-startup": "^1.0.0",
