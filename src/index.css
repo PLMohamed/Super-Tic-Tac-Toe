@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600;1,700;1,800;1,900&family=Shrikhand&display=swap');
+:root{
+  --bg : #071012;
+  --text-fg : #e9f4f6;
+  --text-bg : #e9f4f60d;
+  --text-bg2 : #e9f4f63a;
+  --primary : #34504B;
+  --secondary : #0d1d21;
+  --accent : #689C93;
+}
+
+body{
+  background:var(--bg);
+  color: var(--text-fg);
+  font-family: 'Montserrat',sans-serif;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+h1{
+  color: var(--text-fg);
+  font-family: 'Shrikhand';
+  font-size: 3rem;
+}
+
+#currentPlayer{
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+#stats,#currentPlayer{
+  margin: 1em;
+}
+
+#game {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-template-rows: auto auto auto;
+  background-color: var(--primary);
+  gap: 5px;
+}
+
+#game > div.ext {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-template-rows: auto auto auto;
+  font-size: 35px;
+  padding: 10px;
+  max-width: 220px;
+  width: 20vw;
+  max-height: 220px;
+  height: 20vw;
+  gap: 4px;
+  
+}
+
+div.ext > div.int{
+  background: var(--secondary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 70px;
+  width: 6vw;
+  max-height: 70px;
+  height: 6vw;
+}
+
+a{
+  padding: 0.5em 2em;
+  background-color: var(--secondary);
+  color: var(--text-fg);
+  border-radius: 6px;
+  display: inline-block;
+  font-size: var(--p);
+  z-index: 1;
+  cursor: pointer;
+  transition: transform ease 0.2s;
+  white-space: nowrap;
+  text-decoration: none;
+  margin: 1em;
+  font-size: 1.2rem;
+}
+
+a:hover{
+  transition: 200ms ease;
+  transform: translate(0,-3px);
+}
+
+.active{
+  background-color: var(--accent);
+}
+
+.disable {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  font-size: 8rem !important;
+  background: transparent !important;
+}
