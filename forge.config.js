@@ -27,12 +27,6 @@ module.exports = {
       name: '@electron-forge/maker-rpm',
       config: {},
     },
-    {
-      name: '@electron-forge/maker-wix',
-      config: {
-        icon: 'src/icon.ico'
-      }
-    },
   ],
   plugins: [
     {
